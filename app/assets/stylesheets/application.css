@@ -1,0 +1,314 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.nav > li :hover {
+  background-color: #000;
+  color: #fff;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+header,
+header > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.action {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.modern-width {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5%;
+  gap: 10px;
+}
+
+.modern-width > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+table {
+  width: 70%;
+  border: solid #000 2px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: solid #000 2px;
+  padding: 20px;
+  gap: 30px;
+}
+
+.recipe-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.remove {
+  background-color: red;
+  color: #fff;
+  border: solid #000 1px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.add {
+  background-color: green;
+  color: #fff;
+  border: solid #000 1px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+}
+
+.add-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.submission {
+  width: 100%;
+  padding: 5px;
+  border: solid #000 2px;
+  box-shadow: 5px 5px 5px #000;
+  cursor: pointer;
+}
+
+input {
+  border: solid #000 2px;
+}
+
+input:focus {
+  border: none;
+}
+
+.recipe-detailss {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-name {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.detail-item {
+  display: flex;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.detail-public {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+  margin-left: 30%;
+}
+
+.general-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.submissions {
+  padding: 5px;
+  border: solid #000 2px;
+  box-shadow: 5px 5px 5px #000;
+  cursor: pointer;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(167, 167, 167);
+}
+
+.separator {
+  width: 100%;
+  background-color: #000;
+  height: 2px;
+  margin-bottom: 20px;
+}
+
+td {
+  border-right: solid #000 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.public-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.public-recipe {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 10px;
+}
+
+.public-recipe > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  border: solid #000 2px;
+  padding: 10px;
+}
+
+/* toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 10px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #249e06;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.shopping-header {
+  text-align: center;
+  font-size: 2em;
+}
+
+.shopping-totals {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+}
+
+.shopping-table {
+  width: 100%;
+}
+
+.shopping-table table {
+  width: 75%;
+  margin: auto;
+}
