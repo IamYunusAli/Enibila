@@ -1,0 +1,19 @@
+<div class="public-page">
+<h1>Public Recipes</h1>
+<ul class="public-recipe">
+  <% @public_recipes.each_with_index do |recipe, i| %>
+    <li>
+      <div>
+        <h2>
+          <%= link_to recipe.name, recipe_path(recipe) %>
+        </h2>
+        <p>By: <%= recipe.user.name %></p>
+      </div>
+      <div>
+        <p>Total food items: <%= recipe.recipe_foods.count %></p>
+        <p>Total price: <%= @total_price[i] %></p>
+      </div>
+    </li>
+   <% end %>
+</ul>
+</div>

@@ -1,0 +1,18 @@
+<div>
+  <%= form_with url: recipe_recipe_food_path, method: :patch, scope: :edit_recipe_food do |form| %>
+    <p>Update Ingredient</p>
+    <div>
+      <%= form.label :quantity, "Quantity", placeholder: 0 %>
+      <%= form.number_field :quantity, required: true %>
+    </div>
+    <div>
+      <%= form.label :food_id, "Food" %>
+      <div>
+        <%= form.collection_select(:food_id, @foods, :id, :name) %>
+      </div>
+    </div>
+    <div>
+      <%= form.submit "Update Ingredient" %>
+    </div>
+  <% end %>
+</div>

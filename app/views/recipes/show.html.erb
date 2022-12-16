@@ -1,0 +1,71 @@
+    <div class="recipe-detailss">
+    <p class="recipe-name"><%= @recipe.name+" Recipe" %></p>
+      <div class="detail-item">
+        <p>Preparation Time: <%= @recipe.preparation_time.to_s + " Hours" %></p>
+        <div class="detail-public">
+        Public: &nbsp;
+        <%if @recipe.public? %>
+        <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+        </label>
+        <%else%>
+        <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+        </label>
+        <%end%>
+        </div>
+      </div>
+      </div>
+    <div class="detail-item">
+      <p>Cooking Time: <%= @recipe.cooking_time.to_s + " Hours" %></p>
+    </div>
+    <div class="detail-item">
+    <p>Recipe Step:</p>
+    <p><%= @recipe.description %></p>
+    </div>
+
+
+    <div class="general-add">
+      <% if @recipe.user == current_user %>
+        <div class="submissions g-shopping">
+          <%= link_to "Generate Shopping List", generate_index_path %>
+        </div>
+        <div class="submissions g-gredients">
+          <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe) %>
+        </div>
+      <% end %>
+    </div>
+    <div class="separator"></div>
+    <% if @recipe_foods.length >= 0 %>
+      <table class="t-border">
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @recipe_foods.each do |recipe_food| %>
+            <tr>
+              <td><%= recipe_food.food.name %></td>
+              <td><%= recipe_food.quantity %></td>
+              <td>$<%= recipe_food.quantity * recipe_food.food.price %></td>
+              <td>
+                <% if current_user == recipe_food.recipe.user %>
+                 <div class="row">
+                  <%= button_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), method: :get %>
+                  <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete %>
+                </div>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

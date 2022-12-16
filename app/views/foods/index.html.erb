@@ -1,0 +1,32 @@
+<main>
+  <% if user_signed_in? %>
+  <div class="action">
+    <%= link_to "Add Food", new_food_path, class: "add" %>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+  <div class="modern-width">
+    <table border="">
+      <thead>
+        <tr>
+          <td>Food</td>
+          <td>Measurement unit</td>
+          <td>Unit Price</td>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td><%= button_to 'Delete', food_path(food), method: :delete ,  class: "remove"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div>
+  <% end %>
+</main>

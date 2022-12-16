@@ -1,0 +1,31 @@
+<section class="add-items food">
+  <h2>Add new Food</h2>
+
+<%= form_with model: @new_food, url: foods_path do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :measurement_unit %><br />
+    <%= f.text_field :measurement_unit, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Food" , class: "submission" %>
+  </div>
+<% end %>
+
+</section>

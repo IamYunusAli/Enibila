@@ -1,0 +1,28 @@
+<section>
+  <h1 class="shopping-header">Shopping List</h1>
+
+  <div class="shopping-totals">
+    <p>Amount of food items to buy: <%= @amount_of_food %></p>
+    <p>Total value of food needed: $<%= @total %></p>
+  </div>
+</section>
+<section class="shopping-table">
+  <table border="|">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods_arr.each do |recipe_food| %>
+        <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.food.measurement_unit %></td>
+          <td><%= recipe_food.food.price * recipe_food.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

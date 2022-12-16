@@ -1,0 +1,20 @@
+    <div class="action">
+        <%= link_to "Add Recipe", new_recipe_path , class: "add"%>
+    </div>
+    <div class="modern-width">
+    <ul >
+      <% @recipes.each do |recipe| %>
+        <li class ="recipe-details" >
+          <div class="recipe-title">
+            <div>
+              <%= link_to recipe.name, recipe_path(recipe) %>
+            </div>
+            <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "remove" %>
+          </div>
+          <div >
+            <%= truncate(recipe.description, length: 70) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    </div>
