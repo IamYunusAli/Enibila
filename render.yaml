@@ -1,6 +1,5 @@
 databases:
   - name: postgres
-    ipAllowList: []
 
 services:
   - type: web
